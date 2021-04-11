@@ -42,12 +42,14 @@ addForm.addEventListener('submit', e=>{
 
 const bookSearch = document.querySelector("#searchInput")
 bookSearch.addEventListener('input', e=>{
-    searchValue = bookSearch.value
+    searchValue = bookSearch.value.toLowerCase()
+   
     document.querySelectorAll(".name").forEach(span=>{
-        if(!span.textContent.includes(searchValue)){
+        lowerCaseSpan = span.textContent.toLowerCase()
+        if(!lowerCaseSpan.includes(searchValue)){
             span.parentNode.style.display= "none"
         }
-        if(span.textContent.includes(searchValue)){
+        if(lowerCaseSpan.includes(searchValue)){
             span.parentNode.style.display = "block"
         }
     })
