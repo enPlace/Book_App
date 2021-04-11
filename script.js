@@ -31,20 +31,24 @@ addForm.addEventListener('submit', e=>{
         newLi.appendChild(newSpan)
         bookList.appendChild(newLi)
         addForm.reset()
+       
     }
 });
 
 
 
 const bookSearch = document.querySelector("#searchInput")
-listNames = document.querySelectorAll(".name")
+
 bookSearch.addEventListener('input', e=>{
-    listLength= document.querySelectorAll("#list li").length;
+    
     searchValue = bookSearch.value
     
-    listNames.forEach(span=>{
+    document.querySelectorAll(".name").forEach(span=>{
         if(!span.textContent.includes(searchValue)){
             span.parentNode.style.display= "none"
+        }
+        if(span.textContent.includes(searchValue)){
+            span.parentNode.style.display = "block"
         }
     })
 
