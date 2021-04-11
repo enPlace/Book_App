@@ -1,15 +1,18 @@
 
-const bookList = document.querySelector("#book-list ul")
 
+/* ----script for delete button functionality----- */
+const bookList = document.querySelector("#book-list ul")
 bookList.addEventListener('click', e=>{
     bookRow = e.target.parentElement.parentElement
-    if(e.target.className == "delete-button"){
-      
+    if(e.target.className == "delete-button"){    
         bookRow.parentNode.removeChild(bookRow)
     }});
 
-addForm = document.querySelector("#add-book")
 
+
+/* ------script for adding books to the list----------------- */
+
+addForm = document.querySelector("#add-book")
 addForm.addEventListener('submit', e=>{
     e.preventDefault();
     inputValue = document.querySelector("#bookform").value;
@@ -35,14 +38,11 @@ addForm.addEventListener('submit', e=>{
     }
 });
 
-
+/* -----Script for book search function--------- */
 
 const bookSearch = document.querySelector("#searchInput")
-
 bookSearch.addEventListener('input', e=>{
-    
     searchValue = bookSearch.value
-    
     document.querySelectorAll(".name").forEach(span=>{
         if(!span.textContent.includes(searchValue)){
             span.parentNode.style.display= "none"
