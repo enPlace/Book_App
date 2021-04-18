@@ -43,6 +43,7 @@ h2{
     color: #444;
 }
 #book-list{
+    margin-top: 20px; 
     background-color: white;
 }
 #book-list ul, #tabbed-content ul{
@@ -58,7 +59,25 @@ h2{
 #book-list li:hover{
     border-color: rgba(255, 115, 0, 0.671);
 }
+#sorter{
+    float: right;
+    border: 1px solid #9361bf;
+    background: #9361bf;
+   
+    font-size: 16px;
+    color: white;
+    width: 100px;
+    height: 30px;
+    border-radius: 4px; 
+    margin-right: 60px;
+  
 
+}
+#sorter:hover{
+    background-color:#a87cced2;
+    cursor: pointer;
+
+}
 .delete button{
     float: right;
     border: 1px solid #9361bf;

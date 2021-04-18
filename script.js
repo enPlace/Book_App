@@ -100,13 +100,6 @@ function sortBooks(){
         ulArray = document.querySelectorAll("li")
         j--
 
-          /*   console.log(ulArray[j])
-            let current = ulArray[j]
-            let prev = ulArray[j-1]
-            ulArray[j-1] = current
-            ulArray[j] = prev */
-            
-            
             
         }
     }
@@ -128,13 +121,4 @@ function sortBooks(){
   
 
 
-let sorter = document.getElementById("sorter")
-/* while(arr[j]<arr[j-1]){
-    console.log(arr[j])
-    let current = arr[j]
-    let prev = arr[j-1]
-    arr[j-1] = current
-    arr[j] = prev
-    j--
-}
-} */
+
