@@ -34,6 +34,7 @@ addForm.addEventListener('submit', e=>{
         newLi.appendChild(newSpan)
         bookList.appendChild(newLi)
         addForm.reset()
+        ulArray = document.querySelectorAll("li")
        
     }
 });
@@ -57,3 +58,83 @@ bookSearch.addEventListener('input', e=>{
     })
 
 
+    /* ----Sorting the list alphabetically------ */
+
+let ulArray = document.querySelectorAll("li")
+const ul = document.querySelector("ul")
+
+const firstLi = document.querySelectorAll("li")[0]
+const secondLi = document.querySelectorAll("li")[1] 
+let clonedLi = firstLi.cloneNode(true)
+
+const letters = {a:1, b:2, c:3, d:4, e:5, f:6, g:7, h:8, i:9, j:10,
+    k:11, l:12, m:13, n:14, o:15, p:16, q:17, r:18, s:19, t:20,
+    u:21, v:22, w:23, x:24, y:25, z:26}
+
+function nameText(x){
+    return ulArray[x].getElementsByTagName("span")[0].textContent.toLowerCase()
+}
+function firstLetter(x){
+    if (nameText(x).slice(0,4) == "the "){
+        return nameText(x)[4]
+    }
+    return nameText(x)[0] 
+    
+} 
+function firstLetterValue(arrayPosition){
+    let nameText =  arrayPosition.getElementsByTagName("span")[0].textContent.toLowerCase()
+    if (nameText.slice(0,4)=="the "){
+        return letters[nameText[4]]
+    }
+    return letters[nameText[0]]
+
+
+}
+function sortBooks(){
+    for(i=1; i<ulArray.length;i++){
+        let j = i
+        console.log(i)
+        if(firstLetterValue(ulArray[j])<firstLetterValue(ulArray[j-1])) console.log(i)
+        while(firstLetterValue(ulArray[j])<firstLetterValue(ulArray[j-1])&&j>1){
+        ul.insertBefore(ulArray[j], ulArray[j-1])
+        ulArray = document.querySelectorAll("li")
+        j--
+
+          /*   console.log(ulArray[j])
+            let current = ulArray[j]
+            let prev = ulArray[j-1]
+            ulArray[j-1] = current
+            ulArray[j] = prev */
+            
+            
+            
+        }
+    }
+     if(firstLetterValue(ulArray[0])> firstLetterValue(ulArray[1])){
+         console.log("working")
+     }for(let book of ulArray){
+         if (firstLetterValue(book)>firstLetterValue(ulArray[0])){
+             console.log(firstLetterValue(book))
+             ul.insertBefore(ulArray[0], book)
+             break
+         }
+     }
+
+
+
+
+   } 
+
+  
+
+
+let sorter = document.getElementById("sorter")
+/* while(arr[j]<arr[j-1]){
+    console.log(arr[j])
+    let current = arr[j]
+    let prev = arr[j-1]
+    arr[j-1] = current
+    arr[j] = prev
+    j--
+}
+} */
